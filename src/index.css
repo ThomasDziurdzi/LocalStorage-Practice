@@ -21,9 +21,9 @@ button {
   color: var(--white);
   border-radius: 15px;
   background-color: #242424;
+  min-width: 50px;
   padding: 0.3rem;
   margin: 0.5rem;
-  aspect-ratio: 3/0.5;
 }
 
 a {
@@ -61,11 +61,11 @@ a {
   .cm-line {
     padding-left: 15px;
   }
-  
+
   p {
     margin: 1rem 0;
 
-    &:nth-child(even){
+    &:nth-child(even) {
       margin: 1rem 2rem;
     }
   }
