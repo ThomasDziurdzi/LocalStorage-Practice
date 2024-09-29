@@ -1,5 +1,4 @@
 import Exercice from "./container/Exercice";
-import { useState } from "react";
 
 export default function Exercice1() {
   // 1. Utilisez un state pour stocker la valeur saisie par l'utilisateur.
