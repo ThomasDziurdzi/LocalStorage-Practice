@@ -61,4 +61,12 @@ a {
   .cm-line {
     padding-left: 15px;
   }
+  
+  p {
+    margin: 1rem 0;
+
+    &:nth-child(even){
+      margin: 1rem 2rem;
+    }
+  }
 }
