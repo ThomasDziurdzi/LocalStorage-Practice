@@ -11,9 +11,9 @@ export default function Exercice3() {
         entrée spécifique du LocalStorage (utilisez `localStorage.removeItem`).
       </p>
       <div className="solution">
-        <button>Supprimer les données de l'Exercice 1</button>
-        <button>Supprimer les données de l'Exercice 2</button>
-        <button>Effacer tout le LocalStorage</button>
+        <button onClick={() => localStorage.removeItem('salut')}>Supprimer les données de l'Exercice 1</button>
+        <button onClick={() => localStorage.removeItem('count')}>Supprimer les données de l'Exercice 2</button>
+        <button onClick={() => localStorage.clear()}>Effacer tout le LocalStorage</button>
       </div>
     </Exercice>
   );
