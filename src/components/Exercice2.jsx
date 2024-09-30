@@ -6,27 +6,25 @@ export default function Exercice2() {
   // 2. Utilisez `localStorage.getItem` pour récupérer cette valeur.
   // 3. Affichez cette valeur.
 
-  const [count, setCount] = useState(getSavedCount)
+  const [count, setCount] = useState(0)
+
   const handleAddClick = () => {
+    localStorage.setItem('count', count + 1)
     setCount(count + 1)
   }
   
   const handleSubstractClick = () => {
+    localStorage.setItem('count', count - 1)
     setCount(count - 1)
   }
 
-  const getSavedCount = () => {
-    const storedCount = localStorage.getItem('count')
-    if (storedCount) {
-      return parseInt(storedCount)
-    } else {
-      return 0;
-    }
-  }
-
   useEffect(() => {
-    localStorage.setItem("count", count)
-  }, [count])
+    const storedNumber = parseInt(localStorage.getItem('count'))
+    if (!isNaN(storedNumber)) {
+      setCount(storedNumber)
+    }
+  }, [])
+
 
   return (
     <Exercice>
@@ -38,8 +36,8 @@ export default function Exercice2() {
       </p>
       <div className="solution">
         <div>
-          <button onClick={() => handleSubstractClick()}>-</button>
-          <button onClick={() => handleAddClick()}>+</button>
+          <button onClick={ handleSubstractClick}>-</button>
+          <button onClick={handleAddClick}>+</button>
           <p>Compteur : {count}</p>
         </div>
       </div>
