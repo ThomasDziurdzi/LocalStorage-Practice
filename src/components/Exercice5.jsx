@@ -14,6 +14,18 @@ export default function Exercice5() {
     { id: 3, name: "Produit C", price: 49.99 },
   ]);
 
+  const handleClick = (product) => {
+    const newProduct = [...cart, product]
+    localStorage.setItem('panier', JSON.stringify(newProduct))
+    setCart(newProduct)
+  }
+
+  const handleRemove = (item) => {
+    const product = cart.filter((elem) => elem.id !== item)
+    localStorage.setItem('panier', JSON.stringify(product))
+    setCart(product)
+  }
+
   return (
     <Exercice>
       <h2>Exercice 5 : Panier de Boutique avec LocalStorage</h2>
@@ -30,7 +42,7 @@ export default function Exercice5() {
           {products.map((product) => (
             <li key={product.id}>
               {product.name} - {product.price.toFixed(2)}€
-              <button>Ajouter au panier</button>
+              <button onClick={() => handleClick(product)}>Ajouter au panier</button>
             </li>
           ))}
         </ul>
@@ -40,7 +52,7 @@ export default function Exercice5() {
           <ul>
             {cart.map((item) => (
               <li key={item.id}>
-                {item.name} - {item.price.toFixed(2)}€<button>Retirer</button>
+                {item.name} - {item.price.toFixed(2)}€<button onClick={() => handleRemove(item.id)}>Retirer</button>
               </li>
             ))}
           </ul>
